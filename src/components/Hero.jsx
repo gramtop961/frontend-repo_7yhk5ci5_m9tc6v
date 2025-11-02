@@ -2,54 +2,44 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-amber-50/50 pointer-events-none" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8 relative">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div className="order-2 lg:order-1">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900">
-              Swiss-Controlled Commodity Flows
-            </h1>
-            <p className="mt-5 max-w-xl text-neutral-600 text-lg">
-              SUNGRAIN CH is a Switzerland-based agro-trading house owning and operating logistics
-              infrastructure. We partner with institutions and corporates to move essential crops with
-              precision, transparency, and scale.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#contact"
-                className="inline-flex items-center rounded-full bg-neutral-900 px-5 py-3 text-white shadow-sm hover:bg-neutral-800"
-              >
-                Request a Briefing
-              </a>
-              <a
-                href="#capabilities"
-                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-neutral-900 ring-1 ring-inset ring-neutral-200 hover:bg-neutral-50"
-              >
-                Explore Capabilities
-              </a>
-            </div>
-            <dl className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-6">
-              {[
-                { label: 'Owned Assets', value: 'Ports & Storage' },
-                { label: 'Coverage', value: 'EMEA & APAC' },
-                { label: 'Governance', value: 'Swiss Standards' },
-              ].map((item) => (
-                <div key={item.label} className="rounded-2xl bg-white/80 ring-1 ring-neutral-200 p-4">
-                  <dt className="text-xs uppercase tracking-wide text-neutral-500">{item.label}</dt>
-                  <dd className="mt-1 font-medium text-neutral-900">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+    <section id="top" className="relative">
+      <div className="relative h-[72vh] sm:h-[78vh] lg:h-[88vh] w-full overflow-hidden rounded-b-[2rem] ring-1 ring-neutral-200/40">
+        <div className="absolute inset-0">
+          <Spline
+            scene="https://prod.spline.design/Gt5HUob8aGDxOUep/scene.splinecode"
+            style={{ width: '100%', height: '100%' }}
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/40" />
+        </div>
 
-          <div className="order-1 lg:order-2">
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[560px] rounded-3xl overflow-hidden ring-1 ring-neutral-200 bg-white">
-              <Spline
-                scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode"
-                style={{ width: '100%', height: '100%' }}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
+        <div className="relative h-full">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-end sm:items-center">
+            <div className="max-w-2xl pb-10 sm:pb-0">
+              <p className="text-amber-300/90 text-sm font-medium uppercase tracking-wider">
+                Swiss-Controlled Commodity Flows
+              </p>
+              <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white drop-shadow">
+                Dynamic. Precise. Global.
+              </h1>
+              <p className="mt-4 text-neutral-200/90 text-lg">
+                SUNGRAIN CH operates and finances end-to-end agro supply chains with institutional-grade
+                risk, data transparency, and owned infrastructure.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="#network"
+                  className="inline-flex items-center rounded-full bg-white/95 px-5 py-3 text-neutral-900 shadow-sm hover:bg-white"
+                >
+                  See How the Network Operates
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center rounded-full bg-neutral-900/80 px-5 py-3 text-white ring-1 ring-white/20 hover:bg-neutral-900"
+                >
+                  Request Institutional Briefing
+                </a>
+              </div>
             </div>
           </div>
         </div>
