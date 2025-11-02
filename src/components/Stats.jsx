@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-function useCounter(to: number, duration = 1200) {
+function useCounter(to, duration = 1200) {
   const [value, setValue] = useState(0);
-  const startRef = useRef<number | null>(null);
+  const startRef = useRef(null);
 
   useEffect(() => {
-    let raf: number;
-    const step = (ts: number) => {
+    let raf;
+    const step = (ts) => {
       if (startRef.current === null) startRef.current = ts;
       const progress = Math.min(1, (ts - startRef.current) / duration);
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -27,24 +27,28 @@ const items = [
   { label: 'Counterparties', value: 140, suffix: '+' },
 ];
 
+function CounterItem({ label, value, suffix }) {
+  const v = useCounter(value);
+  return (
+    <div className="text-center">
+      <div className="text-4xl font-semibold tracking-tight text-neutral-900">
+        {v}
+        <span className="text-amber-500">{suffix}</span>
+      </div>
+      <div className="mt-2 text-sm text-neutral-600">{label}</div>
+    </div>
+  );
+}
+
 export default function Stats() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-br from-white to-amber-50 ring-1 ring-neutral-200 p-6 sm:p-10">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((it) => {
-              const v = useCounter(it.value);
-              return (
-                <div key={it.label} className="text-center">
-                  <div className="text-4xl font-semibold tracking-tight text-neutral-900">
-                    {v}
-                    <span className="text-amber-500">{it.suffix}</span>
-                  </div>
-                  <div className="mt-2 text-sm text-neutral-600">{it.label}</div>
-                </div>
-              );
-            })}
+            {items.map((it) => (
+              <CounterItem key={it.label} label={it.label} value={it.value} suffix={it.suffix} />
+            ))}
           </div>
         </div>
       </div>
